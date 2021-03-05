@@ -1,0 +1,173 @@
+@import "variables.scss";
+@import "mixins";
+@import "fonts.scss";
+@import "animation.scss";
+
+html,
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+* {
+    font-family: $fuente_principal;
+}
+
+// Para que el scroll spy funcione correctamente
+body {
+    position: relative;
+}
+
+// Flecha para ir arriba
+.ir-arriba {
+
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    width: 3rem;
+    height: 3rem;
+    opacity: .75;
+    // transition: all 0.3s ease;
+    transition-property: transform opacity;
+    transition-duration: .3s;
+    transition-timing-function: ease;
+
+    &:hover {
+        opacity: 1;
+
+        i {
+            transform: translateY(-5px);
+
+        }
+    }
+
+    i {
+        // transition: all 0.3s ease;
+        transition-property: transform opacity;
+        transition-duration: .3s;
+        transition-timing-function: ease;
+
+
+    }
+}
+
+
+
+// NAV cuando hacemos scroll hacia abajo
+.nav-superior {
+    transition-property: background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+
+    a:hover {
+        font-size: 1.5rem;
+
+        @include brackpoint-lg {
+            font-size: 1rem;
+            transform: scale(1.5);
+        }
+    }
+}
+
+// Header
+.cabezera {
+    @include imagen-fixed("https://i1.wp.com/windowscustomization.com/wp-content/uploads/2018/08/rain-3.gif?fit=750%2C390&quality=80&strip=all&ssl=1", 100vh);
+    position: relative;
+
+    cursor: default;
+    user-select: none;
+
+    h1 {
+        span {
+            display: inline-block;
+            text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4482, 0 0 0.5em #ff44e0, 0 0 0.1em #ef44ff, 0 10px 3px #000;
+
+            font-family: $fuente_estetica;
+
+            @for $i from 1 to length($animacion-delay) {
+                &:nth-child(#{length($animacion-delay)}n+#{$i}) {
+                    animation: blink linear infinite 2s nth($animacion-delay, $i);
+                }
+            }
+            font-size: calc(100vw / 4);
+
+            @include brackpoint-sm {
+                font-size: calc(100vw / 4);
+            }
+            @include brackpoint-md {
+                font-size: calc(100vw / 5);
+            }
+            @include brackpoint-lg {
+                font-size: calc(100vw / 6);
+            }
+        }
+    }
+}
+
+// Iconos de sobre mi
+.icono-small {
+    font-size: 3rem;
+    width: 5rem;
+    height: 5rem;
+    transition-property: transform;
+    transition-duration: 500ms;
+
+    &:hover {
+        transform: scale(1.2) rotate(calc(360deg * 1));
+    }
+}
+
+// Apartado azul claro con inforamcion del apartado
+.mensaje {
+    padding-top: 56px;
+    padding-bottom: 20px;
+}
+
+// Contenedor de la progres bar
+.mi-contenedor-progresbar {
+    height: 1.5rem;
+    font-size: 1rem;
+}
+
+// Textarea del formulario
+#informacion-solcitada {
+    height: 150px;
+}
+
+// Link personalizado por defecto
+.link-personalizado {
+    i {
+        transition-property: transform color;
+        transition-duration: 500ms;
+    }
+
+    &:hover {
+        i {
+            transform: scale(1.5);
+            color: $texto-claro;
+        }
+    }
+}
+
+.link-facebook {
+    color: $ic-facebook;
+}
+
+.link-google-plus {
+    color: $ic-google-plus;
+}
+
+.link-linkedin {
+    color: $ic-link-edin;
+}
+
+.link-twitter {
+    color: $ic-twitter;
+}

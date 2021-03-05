@@ -1,0 +1,43 @@
+@mixin imagen-fixed($imagen,$size) {
+    background-image: url($imagen);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: $size;
+}
+
+//MEDIAS QUERIES
+@mixin brackpoint-s {
+    @media screen and (min-width: #{$s}){
+        @content;
+    }
+}
+
+@mixin brackpoint-sm {
+    @media screen and (min-width: #{$sm}){
+        @content;
+    }
+}
+
+@mixin brackpoint-md {
+    @media screen and (min-width: #{$md}){
+        @content;
+    }
+}
+@mixin brackpoint-lg {
+    @media screen and (min-width: #{$lg}){
+        @content;
+    }
+}
+@mixin brackpoint-xl {
+    @media screen and (min-width: #{$xl}){
+        @content;
+    }
+}
+@mixin brackpoint-xxl {
+    @media screen and (min-width: #{$xxl}){
+        @content;
+    }
+}
+/////FIN MEDIA QUERIS
